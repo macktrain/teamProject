@@ -1,0 +1,17 @@
+.petResult 
+{
+    background-color: aqua;
+}
+
+#results
+{
+    display: flex;
+    flex-direction: row;
+}
+
+#petResult
+{
+    display: flex;
+    flex-direction: column;
+}
+

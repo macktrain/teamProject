@@ -17,6 +17,12 @@
           <div id='dropdowns'>
             <div>
               <select name="petType" id="petType">
+                <option value="error">Select a Gender</option>
+                <option value="All">All</option>
+                <option value="Cat">Cat</option>
+                <option value="Dog">Dog</option>
+                <option value="Rabbit">Rabbit</option>
+                <option value="Horse">Horse</option>
               </select>
               <select name="gender" id="gender">
                 <option value="error">Select a Gender</option>
@@ -27,8 +33,10 @@
             </div>
           </div>
           <button type=button id="searchBtn">Search</button>
+          <div id="resultsNav">
+          </div>
           <hr>
-          <div id="history">
+          <div id="results">
           </div>
       </div>
     <script src="./js/adoption.js"></script>

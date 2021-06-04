@@ -1,15 +1,18 @@
 var key = 'PjAiqQkX9ryN0fnzohJ4agvUcOtN2qWVZrKapDidlqWzHbwfW9';
 var secret = 'LZWrcUd02uh95dPgaLU7dWSvbPycN2zFXRU7nnWT';
+var dashboard = document.getElementById("dashboard");
+var results = document.getElementById("results");
 var petTypeEl = document.getElementById("petType");
 var genderEl = document.getElementById("gender");
 var access_type = "";
 var access_token = "";
+var searchHTML = "";
 
 var searchBtn = document.getElementById("searchBtn");
 searchBtn.addEventListener("click", function() {checkPets(gender.value, petType.value);}, false);
 
 getToken();
-
+/*
 function buildPetType ()
 {
 	fetch('https://api.petfinder.com/v2/types', 
@@ -53,13 +56,18 @@ function buildPetType ()
 	{
 		console.log('Error:  ', error);
 	});
-}
+}*/
 
 function checkPets(gender,type,page)
 {
+	if ((gender == "error") || (type == "error"))
+	{
+		alert ("Please be sure to select a valid Gender and Pet type");
+		return;
+	}
 	var string = 'https://api.petfinder.com/v2/animals?status=' + status;
-	if (gender!="both") {string += ('&gender='+ gender);}
-	if (type!="all") {string += ('&type='+ type);}
+	if (gender!="error"&& gender !="All") {string += ('&gender='+ gender);}
+	if (type!="error" && type !="All") {string += ('&type='+ type);}
 	
 	//The original authentication fetch creates a token that we get to use for the petData calls
 	fetch(string, 
@@ -81,7 +89,39 @@ function checkPets(gender,type,page)
 	.then(function (availPets) 
 	{
 		console.log('Available Pets', availPets);
-		//GO TO RESULTS
+		results.innerHTML = "";
+		if (availPets.animals == undefined)
+		{
+			alert("No results"); 
+			return;
+		}
+		for (var i=0; i < availPets.animals.length; i++)
+		{
+			var petDiv = document.createElement("div");
+			petDiv.setAttribute("class", "petResult");
+			petDiv.setAttribute("id", "petID" + availPets.animals[i].id);
+			petDiv.innerHTML = availPets.animals[i].name;
+			results.appendChild(petDiv);
+			
+			var imgDiv = document.createElement("div");
+			imgDiv.setAttribute("class", "petImg");
+			imgDiv.setAttribute("id", "petImg" + availPets.animals[i].id);
+			petDiv.appendChild(imgDiv);
+
+			var petImg = document.createElement('img');
+
+			if (availPets.animals[i].primary_photo_cropped != null)
+			{
+				petImg.setAttribute("src", availPets.animals[i].primary_photo_cropped.small);
+			}
+			else
+			{
+				petImg.setAttribute("src", "images/PhotoNotAvail-"+ availPets.animals[i].type +".jpg");
+			}
+			
+			imgDiv.appendChild(petImg);
+		}
+
 	})
 
 	// Logs errors in console
@@ -114,7 +154,7 @@ function getToken ()
 		console.log('token', petData);
 		token_type = petData.token_type;
 		access_token = petData.access_token;
-		buildPetType();
+		//buildPetType();
 	})
 
 	// Logs errors in console
