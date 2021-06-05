@@ -9,9 +9,10 @@
     flex-direction: row;
 }
 
-#petResult
+#dashboard
 {
     display: flex;
-    flex-direction: column;
+    
+    flex-direction: row;
 }
 

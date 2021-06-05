@@ -65,7 +65,8 @@ function checkPets(gender,type,page)
 		alert ("Please be sure to select a valid Gender and Pet type");
 		return;
 	}
-	var string = 'https://api.petfinder.com/v2/animals?status=' + status;
+
+	var string = 'https://api.petfinder.com/v2/animals?&limit=50&status=adoptable';
 	
 	if (gender !="Both") {string += ('&gender='+ gender);}
 	if (type !="All") {string += ('&type='+ type);}
@@ -99,29 +100,24 @@ function checkPets(gender,type,page)
 		
 		for (var i=0; i < availPets.animals.length; i++)
 		{
-			var petDiv = document.createElement("div");
-			petDiv.setAttribute("class", "petResult");
-			petDiv.setAttribute("id", "petID" + availPets.animals[i].id);
-			petDiv.innerHTML = availPets.animals[i].name;
-			results.appendChild(petDiv);
-			
-			var imgDiv = document.createElement("div");
-			imgDiv.setAttribute("class", "petImg");
-			imgDiv.setAttribute("id", "petImg" + availPets.animals[i].id);
-			petDiv.appendChild(imgDiv);
-
-			var petImg = document.createElement('img');
-
 			if (availPets.animals[i].primary_photo_cropped != null)
 			{
+				var petDiv = document.createElement("div");
+				petDiv.setAttribute("class", "petResult");
+				petDiv.setAttribute("id", "petID" + availPets.animals[i].id);
+				petDiv.innerHTML = availPets.animals[i].name;
+				results.appendChild(petDiv);
+				
+				var imgDiv = document.createElement("div");
+				imgDiv.setAttribute("class", "petImg");
+				imgDiv.setAttribute("id", "petImg" + availPets.animals[i].id);
+				petDiv.appendChild(imgDiv);
+
+				var petImg = document.createElement('img');
 				petImg.setAttribute("src", availPets.animals[i].primary_photo_cropped.small);
+				
+				imgDiv.appendChild(petImg);
 			}
-			else
-			{
-				petImg.setAttribute("src", "images/PhotoNotAvail-"+ availPets.animals[i].type +".jpg");
-			}
-			
-			imgDiv.appendChild(petImg);
 		}
 
 	})
