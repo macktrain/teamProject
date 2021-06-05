@@ -66,8 +66,9 @@ function checkPets(gender,type,page)
 		return;
 	}
 	var string = 'https://api.petfinder.com/v2/animals?status=' + status;
-	if (gender!="error"&& gender !="All") {string += ('&gender='+ gender);}
-	if (type!="error" && type !="All") {string += ('&type='+ type);}
+	
+	if (gender !="Both") {string += ('&gender='+ gender);}
+	if (type !="All") {string += ('&type='+ type);}
 	
 	//The original authentication fetch creates a token that we get to use for the petData calls
 	fetch(string, 
@@ -95,6 +96,7 @@ function checkPets(gender,type,page)
 			alert("No results"); 
 			return;
 		}
+		
 		for (var i=0; i < availPets.animals.length; i++)
 		{
 			var petDiv = document.createElement("div");
