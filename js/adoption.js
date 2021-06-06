@@ -70,7 +70,24 @@ function checkPets(gender,type,page)
 	
 	if (gender !="Both") {string += ('&gender='+ gender);}
 	if (type !="All") {string += ('&type='+ type);}
+	var checked = 0;
+	string += "&age=";
 	
+
+	for (var i=0; i < 4; i++)
+	{
+		if (document.getElementById("age"+i).checked)
+		{
+			string += (document.getElementById("age"+i).value + ",")
+			checked = 1;
+		}
+	}
+
+	// if an age was selected, remove last comma
+	if (checked) {string = string.substr(0, string.length - 1);}
+	
+	console.log ("querystring " + string);
+
 	//The original authentication fetch creates a token that we get to use for the petData calls
 	fetch(string, 
 	{

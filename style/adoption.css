@@ -1,12 +1,16 @@
 .petResult 
 {
-    background-color: aqua;
+    background-color: rgb(206, 206, 206);
+
 }
 
 #results
 {
     display: flex;
     flex-direction: row;
+
+    flex-wrap: wrap;
+    max-width: 800px;
 }
 
 #dashboard
