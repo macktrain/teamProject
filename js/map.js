@@ -1,4 +1,4 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoibGVlbWFjayIsImEiOiJja3BsbTk5MDIwcGhqMndsdndtZDg5NnNuIn0.Ji9Z3w4hMc0ELFc3Mza0HA';
+mapboxgl.accessToken = 'pk.eyJ1IjoibGVlbWFjayIsImEiOiJja3Bsd3dkankxdm9mMndtdzFzaWZ1bGd4In0.py9FKIJaTXn9CAP5ImtLhQ';
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/streets-v10',
@@ -103,3 +103,13 @@ function getRoute() {
 	});
 	// this is where the code from the next step will go
   });
+
+	// get the sidebar and add the instructions
+	var instructions = document.getElementById('instructions');
+	var steps = data.legs[0].steps;
+
+	var tripInstructions = [];
+	for (var i = 0; i < steps.length; i++) {
+	tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
+	instructions.innerHTML = '<br><span class="duration">Trip duration: ' + Math.floor(data.duration / 60) + ' min </span>' + tripInstructions;
+	}

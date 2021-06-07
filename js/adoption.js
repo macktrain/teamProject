@@ -107,16 +107,36 @@ function checkPets(gender,type,page)
 				petDiv.setAttribute("id", "petID" + availPets.animals[i].id);
 				petDiv.innerHTML = availPets.animals[i].name;
 				results.appendChild(petDiv);
-				
-				var imgDiv = document.createElement("div");
-				imgDiv.setAttribute("class", "petImg");
-				imgDiv.setAttribute("id", "petImg" + availPets.animals[i].id);
-				petDiv.appendChild(imgDiv);
 
+				var addrArr =  [availPets.animals[i].contact.address.address1, 
+								availPets.animals[i].contact.address.address2,
+								availPets.animals[i].contact.address.city,
+								availPets.animals[i].contact.address.state,
+								availPets.animals[i].contact.address.postcode];
+
+				var addressConcat = "";
+
+				if (availPets.animals[i].contact.address.address1 !== null && 
+					!(availPets.animals[i].contact.address.address1.includes("P.O.")))
+					{addressConcat += availPets.animals[i].contact.address.address1 + " ";}
+				if (availPets.animals[i].contact.address.address2 !== null && 
+					!(availPets.animals[i].contact.address.address2.includes("P.O.")))
+					{addressConcat += availPets.animals[i].contact.address.address2 + " ";}
+				if (availPets.animals[i].contact.address.city !== null)
+					{addressConcat += availPets.animals[i].contact.address.city + " ";}
+				if (availPets.animals[i].contact.address.state !== null)
+					{addressConcat += availPets.animals[i].contact.address.state + " ";}
+				if (availPets.animals[i].contact.address.postcode !== null)
+					{addressConcat += availPets.animals[i].contact.address.postcode;}
+					
+				if (addressConcat.trim() === "") {addressConcat = "NoAddress";}
+								
 				var petImg = document.createElement('img');
+				petImg.setAttribute("class", "petImg");
+				petImg.setAttribute("id", "petImg" + availPets.animals[i].id);
 				petImg.setAttribute("src", availPets.animals[i].primary_photo_cropped.small);
-				
-				imgDiv.appendChild(petImg);
+				petImg.setAttribute("onClick", "directions('"+ addressConcat +"')");
+				petDiv.appendChild(petImg);
 			}
 		}
 
@@ -161,4 +181,45 @@ function getToken ()
 		console.log('Error:  ', error);
 	});
 
+}
+
+function geoCode (addressString)
+{
+	//https://api.mapbox.com/geocoding/v5/mapbox.places/2%20Lincoln%20Memorial%20Cir%20NW.json?access_token=
+	url = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+ addressString +".json?access_token=" + key;
+	
+	fetch(url, 
+	{
+		method: 'POST',
+		mode: 'no-cors',
+		body: 'grant_type=client_credentials&client_id=' + key + '&client_secret=' + secret,
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		}
+	})
+	// Return the authentication token response as JSON
+	.then(function (resp) 
+	{
+		return resp.json();
+	})
+	// Logs all of the API petData in console
+	.then(function (petData) 
+	{
+		console.log('token', petData);
+		token_type = petData.token_type;
+		access_token = petData.access_token;
+		//buildPetType();
+	})
+
+	// Logs errors in console
+	.catch(function (error) 
+	{
+		console.log('Error:  ', error);
+	});
+	
+}
+
+function directions (x)
+{
+	alert(x);
 }
