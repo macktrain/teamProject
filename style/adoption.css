@@ -1,0 +1,18 @@
+.petResult 
+{
+    background-color: aqua;
+}
+
+#results
+{
+    display: flex;
+    flex-direction: row;
+}
+
+#dashboard
+{
+    display: flex;
+    
+    flex-direction: row;
+}
+
