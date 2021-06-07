@@ -135,7 +135,7 @@ function checkPets(gender,type,page)
 				petImg.setAttribute("class", "petImg");
 				petImg.setAttribute("id", "petImg" + availPets.animals[i].id);
 				petImg.setAttribute("src", availPets.animals[i].primary_photo_cropped.small);
-				petImg.setAttribute("onClick", "directions('"+ addressConcat +"')");
+				petImg.setAttribute("onClick", "geoCode('"+ addressConcat +"')");
 				petDiv.appendChild(petImg);
 			}
 		}
@@ -185,6 +185,8 @@ function getToken ()
 
 function geoCode (addressString)
 {
+	addressString = addressString.trim(); 
+	addressString = addressString.replace(" ", "%20");
 	//https://api.mapbox.com/geocoding/v5/mapbox.places/2%20Lincoln%20Memorial%20Cir%20NW.json?access_token=
 	url = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+ addressString +".json?access_token=" + key;
 	
@@ -205,21 +207,13 @@ function geoCode (addressString)
 	// Logs all of the API petData in console
 	.then(function (petData) 
 	{
-		console.log('token', petData);
-		token_type = petData.token_type;
-		access_token = petData.access_token;
-		//buildPetType();
+		console.log ("Setting Directions");
+		directions();
 	})
-
 	// Logs errors in console
 	.catch(function (error) 
 	{
 		console.log('Error:  ', error);
 	});
 	
-}
-
-function directions (x)
-{
-	alert(x);
 }
