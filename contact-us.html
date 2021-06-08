@@ -1,25 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
     <link rel="stylesheet" href="contact-us.css" />
   </head>
   <body>
-
-
     <div class="container">
       <div class="h2">
         <h2>Send us a message</h2>
       </div>
       <p>
-        Feel free to get in touch with us with anything related to pets or you can just say hi 👋 we will get back to you as soon as we can.
+        Feel free to get in touch with us with anything related to pets or you
+        can just say hi 👋 we will get back to you as soon as we can.
       </p>
       <form>
+        <div class="col-20"></div>
         <div class="row">
-          <div class="col-25">
-            <label for="fname">First Name</label>
+          <div class="col-10">
+            <label for="name">Name:</label>
           </div>
-          <div class="col-75">
+          <div class="col-50">
+            <input type="text" id="name" name="name" placeholder="Your name" />
+          </div>
+        </div>
+        <div class="col-20"></div>
+        <div class="row">
+          <div class="col-10">
+            <label for="email">Email:</label>
+          </div>
+          <div class="col-50">
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="E-mail@gmail.com"
+            />
+          </div>
+        </div>
+        <div class="col-20"></div>
+        <div class="row">
+          <div class="col-10">
+            <label for="subject">Subject:</label>
+          </div>
+          <div class="col-50">
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="Subject"
+            />
+          </div>
+        </div>
+        <div class="col-20"></div>
+        <div class="row"></div>
+        <div class="col-20"></div>
+        <div class="row">
+          <div class="col-10">
+            <label for="subject">Subject:</label>
+          </div>
+          <div class="col-50">
+            <textarea
+              id="subject"
+              name="subject"
+              placeholder="Write something.."
+              style="height: 200px"
+            ></textarea>
+          </div>
+        </div>
+        <div class="btn">
+          <input type="submit" value="Submit" />
+        </div>
+        <div class="col-20"></div>
+      </form>
+    </div>
+  </body>
+</html>
+
+<!-- 
+            <div class="row">
+          <div class="col-20">
+            <label for="fname">First Name:</label>
+          </div>
+          <div class="col-60">
             <input
               type="text"
               id="fname"
@@ -29,10 +94,10 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-25">
-            <label for="lname">Last Name</label>
+          <div class="col-20">
+            <label for="lname">Last Name:</label>
           </div>
-          <div class="col-75">
+          <div class="col-60">
             <input
               type="text"
               id="lname"
@@ -42,22 +107,25 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-25">
-            <label for="country">Country</label>
+            <div class="col-20">
+              <label for="email">Email:</label>
+            </div>
+            <div class="col-60">
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="E-mail@gmail.com"
+              />
+            </div>
           </div>
-          <div class="col-75">
-            <select id="country" name="country">
-              <option value="australia">Australia</option>
-              <option value="canada">Canada</option>
-              <option value="usa">USA</option>
-            </select>
-          </div>
+        <div class="row">
         </div>
         <div class="row">
-          <div class="col-25">
-            <label for="subject">Subject</label>
+          <div class="col-20">
+            <label for="subject">Subject:</label>
           </div>
-          <div class="col-75">
+          <div class="col-60">
             <textarea
               id="subject"
               name="subject"
@@ -69,7 +137,4 @@
         <div class="row">
           <input type="submit" value="Submit" />
         </div>
-      </form>
-    </div>
-  </body>
-</html>
+ -->
