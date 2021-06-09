@@ -1,3 +1,16 @@
+<!-- 
+
+@uthor: Subash Sunuwar
+
+Description: contact-us.html is a landing page after user clicked the Contact Us option. It is just a bare bone of the contact-us page.
+
+Feature: 
+  1) It has a responsive navigation bar and form for every devices.
+  2) Navigation bar has a hover effect, which let user    know that it is lickable.
+  3) In the main body it has a form to write message and button for send that message.
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,6 +26,7 @@
     <link rel="stylesheet" href="contact-us.css" />
   </head>
   <body>
+    <!-- Navigation bar for contact-us.html-->
     <div class="container">
       <div class="h2">
         <h2>Send us a message</h2>
@@ -64,13 +78,13 @@
         <div class="col-20"></div>
         <div class="row">
           <div class="col-10">
-            <label for="subject">Subject:</label>
+            <label for="subject">Message:</label>
           </div>
           <div class="col-50">
             <textarea
-              id="subject"
-              name="subject"
-              placeholder="Write something.."
+              id="message"
+              name="message"
+              placeholder="Write your message here.."
               style="height: 200px"
             ></textarea>
           </div>

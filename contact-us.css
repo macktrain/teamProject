@@ -1,3 +1,13 @@
+/*
+* * 
+*   @uthor: Subash Sunuwar
+*
+*   Description: contact-us.css is a style for
+*   contact-us.html, which makes user feel more 
+*   responsive.
+* 
+*/
+
 * {
   box-sizing: border-box;
 }
@@ -89,8 +99,8 @@ input:hover {
 }
 
 .button:hover{
-  background-color:#4095c6;
-  color: #F272C3;
+  background-color:#58a0ca;
+  color: #69737a;
 }
 
 @media all and (max-width:30em){
