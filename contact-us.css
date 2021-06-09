@@ -30,17 +30,6 @@ label {
   display: inline-block;
 }
 
-.btn {
-  margin-right: 169px;
-  width: 21.875rem;
-  color: white;
-  padding: 0.75rem 1.25rem;
-  border: none;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  float: right;
-}
-
 input:hover {
   background-color: #edebf2;
 }
@@ -81,5 +70,32 @@ input:hover {
   .col-50 {
     width: 100%;
     margin-top: 0;
+  }
+}
+
+.button {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin:  0.4em 0.3em 0.3em 0;
+  border-radius:2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color:#4eb5f1;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+.button:hover{
+  background-color:#4095c6;
+  color: #F272C3;
+}
+
+@media all and (max-width:30em){
+  a.button3 {
+    display: block;
+    margin: 0.2em auto;
   }
 }
