@@ -5,9 +5,7 @@
 Description: contact-us.html is a landing page after user clicked the Contact Us option. It is just a bare bone of the contact-us page.
 
 Feature: 
-  1) It has a responsive navigation bar and form for every devices.
-  2) Navigation bar has a hover effect, which let user    know that it is lickable.
-  3) In the main body it has a form to write message and button for send that message.
+  In the main body it has a form to write message and button for send that message.
 
 -->
 
@@ -17,16 +15,16 @@ Feature:
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us</title>
+    <title>Pet Finder |Contact Page</title>
     <link
       rel="shortcut icon"
       href="./petHarmony/img/dog-logo-favicon.ico"
       type="image/x-icon"
     />
     <link rel="stylesheet" href="contact-us.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Navigation bar for contact-us.html-->
     <div class="container">
       <div class="h2">
         <h2>Send us a message</h2>
@@ -91,8 +89,51 @@ Feature:
         </div>
         <div class="col-20"></div>
         <div class="col-10"></div>
-        <a href="It's-funny-didn't-go-anywhere!" class="button">Submit</a>
+        <a
+          href="mailto:petharmony11@gmail.com?subject=Mail from our Website&body=Some body text here"
+          class="button"
+          >Submit</a
+        >
       </form>
     </div>
+
+    <footer class="bg-dark text-center text-white dark">
+      <div>
+        <p class="footerP white">Media Links for petHarmony</p>
+      </div>
+      <div class="container p-4 pb-0">
+        <section class="mb-4">
+          <a
+            class="btn btn-outline-light btn-floating m-1 decoration"
+            href="https://www.facebook.com/PeHarmony-110376454602001"
+            role="button"
+            >Facebook</a>
+          <a
+            class="btn btn-outline-light btn-floating m-1 decoration"
+            href="https://twitter.com/petHarmony1"
+            role="button"
+            >Twitter</a>
+          <a
+            class="btn btn-outline-light btn-floating m-1 decoration"
+            href="https://www.instagram.com/petharmony11/"
+            role="button"
+            >instagram</a>
+          <a
+            class="btn btn-outline-light btn-floating m-1 decoration"
+            href="www.linkedin.com/in/pet-harmony-009066214"
+            role="button"
+            >LinkedIn</a>
+          <a
+            class="btn btn-outline-light btn-floating m-1 decoration"
+            href="https://github.com/macktrain/teamProject"
+            role="button"
+            >GitHub</a>
+        </section>
+      </div>
+      <div class="text-center p-3 middle">
+        © 2020 Copyright:
+        <a class="text-white white" href="./index.html">petHarmony.com</a>
+      </div>
+    </footer>
   </body>
 </html>

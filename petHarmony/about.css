@@ -2,18 +2,15 @@
 * * 
 *   @uthor: Subash Sunuwar
 *
-*   Description: index.css is a custom style for index.html,
+*   Description: about.css is a custom style for about.html,
 *   which makes user feel more responsive.
 * 
 */
-
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap");
 
 body {
     background-color: #F1F9FB;
 }
 
-/* CSS for logo */
 .logo {
     transition: all 0.3s ease 0s;
     letter-spacing: 6.5px;
@@ -50,7 +47,7 @@ body {
 }
 
 .h1 {
-    color: Black;
+    color: black;
     font-size: 19px;
 }
 
