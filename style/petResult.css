@@ -1,0 +1,67 @@
+.resultBox {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#displayBox {
+    max-width: 500px
+}
+.displayBox {
+    flex: 1 0 200px;
+    border: 5px solid black;
+    width: 50px;
+    text-align: justify;
+    max-width: 700px;
+    max-height: 700px;
+    min-width: 300px;
+    min-height: 300px;
+}
+.displayBox .info {
+    margin-top: -5px;
+    margin-bottom: -10px;
+}
+.displayBoxHead {
+    text-align: center;
+}
+.petImg {
+    max-width: auto;
+}
+.petName {
+    background-color: lightgreen;
+    color: black;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    border-bottom: 5px solid black;
+    border-top: 5px solid black;
+    font-size: 120%;
+}
+.info {
+    text-align: center;
+    position: relative;
+}
+.info h1 {
+    margin: 0;
+    padding: 10px;
+}
+.info h3 {
+    margin: .5;
+    padding: .5;
+}
+.infoAddress {
+    text-align: center;
+    position: relative;
+}
+.infoAddress h3 {
+    margin: 0;
+    padding: 0;
+}
+span{
+    font-weight: bold;
+    color: lightgreen;
+}
+
+.petImg{
+    height: 600px;
+}
