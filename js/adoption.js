@@ -15,7 +15,10 @@ var searchHTML = "";
 var start = [];
 
 var searchBtn = document.getElementById("searchBtn");
-searchBtn.addEventListener("click", function() {checkPets(gender.value, petType.value);}, false);
+searchBtn.addEventListener("click", function() {checkPets(gender.value, petType.value);hideMapBody();}, false);
+
+var backBtn = document.getElementById("backBtn");
+backBtn.addEventListener("click", function() {hideMapBody();}, false);
 
 getToken();
 
@@ -269,4 +272,9 @@ function getUserAddress()
 					document.getElementById("userZip").value.trim();
 
 	geoCode (userAdd, 'start');
+}
+
+function hideMapBody ()
+{
+	document.getElementById("mapBody").style.display = "none";
 }

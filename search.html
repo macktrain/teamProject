@@ -32,19 +32,6 @@
             <option value="female">Female</option>
           </select>
         </div>  
-        <div id="ageChecks">
-          <p>Select an Age:</p>
-          <input type="checkbox" id="age0" name="age0" value="All">
-          <label for="age0">All</label><br>
-          <input type="checkbox" id="age1" name="age1" value="Baby">
-          <label for="age1">Baby</label><br>
-          <input type="checkbox" id="age2" name="age2" value="Young">
-          <label for="age2">Young</label><br>
-          <input type="checkbox" id="age3" name="age3" value="Adult">
-          <label for="age3">Adult</label><br>
-          <input type="checkbox" id="age3" name="age3" value="Senior">
-          <label for="age3">Senior</label><br>
-        </div>
       </div>
     </div>
     <div>Please enter your address:</div>
@@ -63,8 +50,11 @@
     <div id="mapBody">
       <div id='map'></div>
       <div id='instructions'></div>
+      <div id="backbutton">
+        <input type="button" id="backBtn" value="Back to Results" onclick="backBtn()">
+      </div>
       <script src="js/map.js"></script>
       <script src="js/adoption.js"></script>
-  </div>
+    </div>
   </body>
 </html>
