@@ -7,11 +7,18 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css' rel='stylesheet' />
     <link href='./style/map.css' rel='stylesheet' />
+    <link href='./style/errorModal.css' rel='stylesheet' />
   </head>
   <body><div id="dashboard">
     <h2> 
-    Search For a Pet:
+      Search For a Pet:
     </h2>
+    <div id="errorModal">
+      <div id="errorModalDiv">
+        <div id="errModalMsg">Error Message</div>
+        <span id="errorModalCloseBtn">&times;</span>
+      </div>
+    </div>
     <div id='dropdowns'>
       <div>
         <div id="petTypeContainer">
@@ -51,9 +58,10 @@
       <div id='map'></div>
       <div id='instructions'></div>
       <div id="backbutton">
-        <input type="button" id="backBtn" value="Back to Results" onclick="backBtn()">
+        <input type="button" id="backBtn" value="Back to Results">
       </div>
       <script src="js/map.js"></script>
+      <script src="js/errorModal.js"></script>
       <script src="js/adoption.js"></script>
     </div>
   </body>

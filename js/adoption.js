@@ -11,11 +11,12 @@ var genderEl = document.getElementById("gender");
 var access_type = "";
 var access_token = "";
 var searchHTML = "";
+var proceed = 0;
 
 var start = [];
 
 var searchBtn = document.getElementById("searchBtn");
-searchBtn.addEventListener("click", function() {checkPets(gender.value, petType.value);hideMapBody();}, false);
+searchBtn.addEventListener("click", function() {getUserAddress();checkPets(gender.value, petType.value);hideMapBody();}, false);
 
 var backBtn = document.getElementById("backBtn");
 backBtn.addEventListener("click", function() {hideMapBody();}, false);
@@ -71,11 +72,11 @@ function buildPetType ()
 function checkPets(gender,type,page)
 {
 	//first thing we do is get the user address
-	getUserAddress();
+	if (!proceed) {return;}
 
 	if ((gender == "error") || (type == "error"))
 	{
-		alert ("Please be sure to select a valid Gender and Pet type");
+		errorModalFunc ("Please be sure to select a valid Gender and Pet type");
 		//This stops the function right here
 		return;
 	}
@@ -108,7 +109,7 @@ function checkPets(gender,type,page)
 		results.innerHTML = "";
 		if (availPets.animals == undefined)
 		{
-			alert("No results"); 
+			errorModalFunc("No results"); 
 			return;
 		}
 		
@@ -247,22 +248,22 @@ function getUserAddress()
 {
 	if (document.getElementById("userAddress1").value.trim() === "") 
 	{
-		alert ("Please enter a street address.");
+		errorModalFunc ("Please enter a street address.");
 		return;
 	}
 	if (document.getElementById("userCity").value.trim() === "") 
 	{
-		alert ("Please enter a city.");
+		errorModalFunc ("Please enter a city.");
 		return;
 	}
 	if (document.getElementById("userState").value.trim() === "") 
 	{
-		alert ("Please enter a state.");
+		errorModalFunc ("Please enter a state.");
 		return;
 	}
 	if (document.getElementById("userZip").value.trim() === "") 
 	{
-		alert ("Please enter a zip.");
+		errorModalFunc ("Please enter a zip.");
 		return;
 	}
 	
@@ -270,11 +271,13 @@ function getUserAddress()
 					document.getElementById("userCity").value.trim() +  " " +
 					document.getElementById("userState").value.trim() +  " " +
 					document.getElementById("userZip").value.trim();
-
+	
+	proceed = 1;
 	geoCode (userAdd, 'start');
 }
 
 function hideMapBody ()
 {
 	document.getElementById("mapBody").style.display = "none";
+	proceed = 0;
 }
