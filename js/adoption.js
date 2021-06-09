@@ -120,7 +120,6 @@ function checkPets(gender,type,page)
 				var petDiv = document.createElement("div");
 				petDiv.setAttribute("class", "petResult");
 				petDiv.setAttribute("id", "petID" + availPets.animals[i].id);
-				petDiv.innerHTML = availPets.animals[i].name;
 				results.appendChild(petDiv);
 
 				var addrArr =  [availPets.animals[i].contact.address.address1, 
@@ -155,6 +154,39 @@ function checkPets(gender,type,page)
 				//THIS LINE IS MOST IMPORTANT AND LEADS USER TO THE MAP
 				petImg.setAttribute("onClick", "geoCode('"+ addressConcat +"','to')");
 				petDiv.appendChild(petImg);
+
+
+				var petNameDiv = document.createElement("div");
+				petNameDiv.setAttribute("class", "petName");
+				petNameDiv.innerHTML = availPets.animals[i].name;
+				results.appendChild(petNameDiv);
+
+				var petAgeDiv = document.createElement("div");
+				petAgeDiv.setAttribute("class", "petAge");
+				petAgeDiv.innerHTML = availPets.animals[i].age;
+				results.appendChild(petAgeDiv);
+
+				var petAddressDiv = document.createElement("div");
+				petAddressDiv.setAttribute("class", "petAddress");
+				var postAddr = availPets.animals[i].contact.address.address1 +  " " + 
+								availPets.animals[i].contact.address.address2 +  " " +
+								availPets.animals[i].contact.address.city +  " " +
+								availPets.animals[i].contact.address.state +  " " +
+								availPets.animals[i].contact.address.postcode;
+
+				petAddressDiv.innerHTML = postAddr;
+				results.appendChild(petAddressDiv);
+
+				var petEmailDiv = document.createElement("div");
+				petEmailDiv.setAttribute("class", "petEmail");
+				petEmailDiv.innerHTML = availPets.animals[i].contact.email;
+				results.appendChild(petEmailDiv);
+
+				var petPhoneDiv = document.createElement("div");
+				petPhoneDiv.setAttribute("class", "petPhone");
+				petPhoneDiv.innerHTML = availPets.animals[i].contact.phone;
+				results.appendChild(petPhoneDiv);
+				
 			}
 		}
 
