@@ -3,7 +3,7 @@ var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/streets-v10',
   center: [-122.662323, 45.523751], // starting position
-  zoom: 12
+  zoom: 8
 });
 // set the bounds of the map
 
@@ -15,6 +15,7 @@ var canvas = map.getCanvasContainer();
 function getDirections(end)
 {
   document.getElementById("mapBody").style.display = "block";
+  map.setCenter(start);
   getRoute(start);
   getRoute(end);
 }
