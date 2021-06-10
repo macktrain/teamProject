@@ -1,0 +1,61 @@
+/*
+* * 
+*   @uthor: Subash Sunuwar
+*
+*   Description: index.css is a custom style for index.html,
+*   which makes user feel more responsive.
+* 
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap");
+
+body {
+    background-color: #F1F9FB;
+}
+
+/* CSS for logo */
+.logo {
+    transition: all 0.3s ease 0s;
+    letter-spacing: 6.5px;
+    font-size: 20px;
+    color: White;
+    padding-left: 3.5rem;
+}
+
+.logo,.nav-btn, .nav-anchor, .h1 {
+    text-decoration: none;
+    font-family: "Courier New", Courier, monospace;
+}
+
+/* Custom CSS for Search button for nav-bar */
+.nav-btn {
+    margin-left: auto;
+    margin: 15px;
+    align-items: center;
+    width: 150px;
+    padding: 10px;
+    height: 100%;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.nav-anchor {
+    font-size: 19px;
+    margin: 15px;
+}
+
+/* Margin between nav-bar and main section */
+.divider {
+    margin-top: 40px;
+}
+
+.h1 {
+    color: Black;
+    font-size: 19px;
+}
+
+.jumbotron-image {
+    width: 100%;
+    background-repeat: no-repeat;
+    
+}
