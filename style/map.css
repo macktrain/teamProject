@@ -1,23 +1,30 @@
-
-#mapbody 
-{ 
-  margin: 0; 
+body
+{
+  width:1000px;
+}
+#mapBody {
+  margin: 0;
   padding: 0;
-  display: none; 
+  display: flex;
+  flex-direction: row-reverse;
+  display: none;
 }
 
 #map 
 { 
-  position: absolute; 
+  position: relative; 
   top: 0; 
   bottom: 0; 
-  width: 100%; 
+
+  width: 800px;
+  height: 600px;
 }
 
 #instructions {
   position: absolute;
   margin: 20px;
-  width: 25%;
+  width: 200px;
+  height: 300px;
   top: 0;
   bottom: 20%;
   padding: 20px;
