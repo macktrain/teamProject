@@ -1,0 +1,39 @@
+#errorModal {
+    display: none;
+    position: fixed; 
+    padding-top: 50px;
+    left: 25%; 
+    top: 25%;
+    width: 25%;
+    height: 33%; 
+    background-color: rgb(197, 0, 0);
+    background-color: rgba(68, 0, 0, 0.5);
+  }
+  #errorModal-div {
+    position: relative; 
+    background-color: white;
+    padding: 20px; 
+    margin: auto; 
+    width: 75%;  
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  #errorModalCloseBtn {
+    float: right; 
+    color: lightgray; 
+    font-size: 24px;  
+    font-weight: bold;
+  }
+  #errorModalCloseBtn:hover {
+    color: rgb(0, 0, 0);
+  }
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
