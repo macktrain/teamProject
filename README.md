@@ -5,3 +5,10 @@ Our application will promt the user on the type of pet, gender of pet and the us
 
 ###  ACCESS Application:
 To access our application, please use this link : https://github.com/macktrain/teamProject
+
+###  Developers
+Xavier Sherrod
+Subash Sunawar
+Jared Minaga
+Lee Macklin
+
