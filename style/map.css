@@ -15,16 +15,16 @@ body
   position: relative; 
   top: 0; 
   bottom: 0; 
-  left:  400px;
+  left:  450px;
 
-  width: 800px;
+  width: 850px;
   height: 600px;
 }
 
 #instructions {
   position: absolute;
   margin: 20px;
-  width: 350px;
+  width: 400px;
   height: 250px;
   top: 0;
   bottom: 20%;
