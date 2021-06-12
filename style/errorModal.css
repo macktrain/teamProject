@@ -3,11 +3,10 @@
     position: fixed; 
     padding-top: 50px;
     left: 25%; 
-    top: 25%;
-    width: 25%;
-    height: 33%; 
+    top: 33%;
+    width: 50%;
+    height: 200px; 
     background-color: rgb(197, 0, 0);
-    background-color: rgba(68, 0, 0, 0.5);
   }
   #errorModal-div {
     position: relative; 
@@ -18,8 +17,15 @@
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    align-content: center;
   }
+
+  #errModalMsg
+  {
+    color: white;
+  }
+
   #errorModalCloseBtn {
     float: right; 
     color: lightgray; 

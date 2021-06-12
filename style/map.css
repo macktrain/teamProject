@@ -15,6 +15,7 @@ body
   position: relative; 
   top: 0; 
   bottom: 0; 
+  left:  400px;
 
   width: 800px;
   height: 600px;
@@ -23,8 +24,8 @@ body
 #instructions {
   position: absolute;
   margin: 20px;
-  width: 200px;
-  height: 300px;
+  width: 350px;
+  height: 250px;
   top: 0;
   bottom: 20%;
   padding: 20px;
