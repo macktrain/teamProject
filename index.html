@@ -1,69 +1,234 @@
 <!DOCTYPE html>
-<html lang='en'>
-  <head>
-    <meta charset='utf-8' />
-    <title>Getting started with the Mapbox Directions API</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css' rel='stylesheet' />
-    <link href='./style/map.css' rel='stylesheet' />
-    <link href='./style/petResult.css' rel='stylesheet' />
-    <link href='./style/errorModal.css' rel='stylesheet' />
-  </head>
-  <body><div id="dashboard">
-    <h2> 
-      Search For a Pet:
-    </h2>
-    <div id="errorModal">
-      <div id="errorModalDiv">
-        <div id="errModalMsg">Error Message</div>
-        <span id="errorModalCloseBtn">&times;</span>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css" />
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/errorModal.css">
+  <link rel="stylesheet" href="style/map.css">
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+  <!-- Start your project here-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <h2 class="logo">petHarmony</h2>
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarRightAlignExample"
+        aria-controls="navbarRightAlignExample" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarRightAlignExample">
+        <!-- Left links -->
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="html/about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="html/contact.html">Contact</a>
+          </li>
+          <button type="button"class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+            Search
+          </button>
+
+          <!-- Main Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Search Animals</h5>
+                  <!-- This is the search modal close button "x"-->
+                  <button type="button" class="btn-close" id="modalClose" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div id="errorModal">
+                  <div id="errorModalDiv">
+                    <div id="errModalMsg">Error Message</div>
+                    <span id="errorModalCloseBtn">&times;</span>
+                  </div>
+                </div>
+                
+                <div class="modal-body">
+                  <div id='dropdowns' class="text-center">
+                    <div>
+                      <div id="petTypeContainer">
+                        <select name="petType" id="petType">
+                          <option value="error">Select a Type</option>
+                          <option value="All">All</option>
+                          <option value="Cat">Cat</option>
+                          <option value="Dog">Dog</option>
+                          <option value="Rabbit">Rabbit</option>
+                          <option value="Horse">Horse</option>
+                        </select>
+                      </div>
+                      <div id="gernderContainer">
+                        <select name="gender" id="gender">
+                          <option value="error">Select a Gender</option>
+                          <option value="Both">Both</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                      </div>
+                      <div class="container text-center">
+                        <div>Please enter your address:</div>
+                        <div id="userAddressDiv">
+                          <input type="text" id="userAddress1" size="15" maxlength="30" placeholder="123 Sesame St">
+                          <input type="text" id="userCity" size="15" maxlength="30" placeholder="Berkely">
+                          <input type="text" id="userState" size="2" maxlength="2" placeholder="CA">
+                          <input type="text" id="userZip" size="5" maxlength="5" placeholder="90210">
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="modal-footer center">
+                    <button type="button" class="btn btn-primary btn-rounded" data-mdb-dismiss="modal">
+                      Close
+                    </button>
+                    <button type="button" id="searchBtn" class="btn btn-dark btn-rounded">Search</button>
+                  </div>
+                  <div id="resultsNav">
+                  </div>
+                  <div id="results">
+                  </div>
+                </div>
+              </div>
+            </div>
+   
+            </section>
+
+        </ul>
+        <!-- Left links -->
       </div>
+      <!-- Collapsible wrapper -->
     </div>
-    <div id='dropdowns'>
-      <div>
-        <div id="petTypeContainer">
-          <select name="petType" id="petType">
-            <option value="error">Select a Type</option>
-            <option value="All">All</option>
-            <option value="Cat">Cat</option>
-            <option value="Dog">Dog</option>
-            <option value="Rabbit">Rabbit</option>
-            <option value="Horse">Horse</option>
-          </select>
+    <!-- Container wrapper -->
+  </nav>
+
+  <br>
+  <section>
+    <!-- Jumbotron -->
+    <div class="jumbotron text-center container">
+      <!-- Title -->
+      <h1 class="card-title h1 pb-2"><strong>Be the Reason They Find Their Forever Home</strong></h1>
+
+      <div class="view overlay my-4">
+        <img src="img/jumbotron.jpeg" class="img-fluid img" alt="dog and cat cuddling">
+        <!-- image source https://unsplash.com/photos/9gz3wfHr65U -->
+      </div>
+      <h2 class="indigo-text h2 mb-4">Rescue Today</h2>
+      <p class="card-text">Find your next furry family member and plan your trip!</p>
+    </div>
+    <!-- Jumbotron -->
+  </section>
+  <!-- Button trigger modal -->
+  <button id="directionbutton" type="button" class="btn btn-dark col-12" data-mdb-toggle="modal"
+    data-mdb-target="#staticBackdrop">
+    Generate Directions
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Generate Directions</h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div id="gernderContainer">
-          <select name="gender" id="gender">
-            <option value="error">Select a Gender</option>
-            <option value="Both">Both</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
-        </div>  
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+            Close
+          </button>
+
+        </div>
       </div>
     </div>
-    <div>Please enter your address:</div>
-    <div id="userAddressDiv">
-      <input type="text" id="userAddress1" size="15" maxlength="30" placeholder="123 Sesame St">
-      <input type="text" id="userCity"  size="15" maxlength="30" placeholder="Berkely">
-      <input type="text" id="userState" size="2" maxlength="2" placeholder="CA">
-      <input type="text" id="userZip" size="5" maxlength="5" placeholder="90210">
-    </div>
-    <button type=button id="searchBtn">Search</button>
-    <div id="resultsNav">
-    </div>
-    <div id="results">
-    </div>
-    <hr>
+  </div>
+  <div class="container-fluid" id="map-container">
     <div id="mapBody">
-      <div id='map'></div>
       <div id='instructions'></div>
+      <div id='map'></div>
+      <script src="./js/map.js"></script>
       <div id="backbutton">
         <input type="button" id="backBtn" value="Back to Results">
       </div>
-      <script src="js/map.js"></script>
-      <script src="js/errorModal.js"></script>
-      <script src="js/adoption.js"></script>
     </div>
-  </body>
+  </div>
+
+  <!--Footer-->
+  <footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div>
+      <p class="footerP">
+        Follow Our Social Media!
+      </p>
+    </div>
+    <div class="container p-4 pb-0">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/PeHarmony-110376454602001"
+          role="button"><i class="fab fa-facebook-f"></i></a>
+
+        <!-- Twitter -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/petHarmony1" role="button"><i
+            class="fab fa-twitter"></i></a>
+
+
+        <!-- Instagram -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/petharmony11/"
+          role="button"><i class="fab fa-instagram"></i></a>
+
+        <!-- Linkedin -->
+        <a class="btn btn-outline-light btn-floating m-1" href="www.linkedin.com/in/pet-harmony-009066214"
+          role="button"><i class="fab fa-linkedin-in"></i></a>
+
+        <!-- Github -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/macktrain/teamProject"
+          role="button"><i class="fab fa-github"></i></a>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!--Footer-->
+
+  <!-- MDB -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Custom scripts -->
+  <script type="text/javascript"></script>
+  <!-- link petFinder JS here -->
+  <script src="js/adoption.js"></script>
+  <!-- link mapbox JS here -->
+  <script src="js/errorModal.js"></script>
+
+</body>
+
 </html>
